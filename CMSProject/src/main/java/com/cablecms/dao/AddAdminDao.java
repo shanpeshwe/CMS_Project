@@ -37,25 +37,32 @@ public class AddAdminDao extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
+        String companyname, username, email, contactnumber, password;
         try (PrintWriter out = response.getWriter()) {
 
             Statement stmt = null;
             String res1 = null;
+
             AdminLoginDto admin = new AdminLoginDto();
 
             try {
                 Connection con = DbConnect.getConnection();
-                String qr = "insert into admin (companyname,username,emailaddress,contactnumber,password) values ('" + admin.getCompanyname() + "','" + admin.getUsername() + "','" + admin.getEmail() + "','" + admin.getContactnumber() + "','" + admin.getPassword() + "')";
+                companyname = admin.getCompanyname();
+                username = admin.getUsername();
+                email = admin.getEmail();
+                contactnumber = admin.getContactnumber();
+                password = admin.getPassword();
+                String qr = "insert into admin (companyname,username,emailaddress,contactnumber,password) values ('" + companyname + "','" + username + "','" + email + "','" + contactnumber + "','" + password + "')";
                 stmt = con.createStatement();
                 stmt.executeUpdate(qr);
                 res1 = "record inserted successfully";
             } catch (Exception e) {
                 System.out.println(e);
             }
-            
-            out.print("Admin Registered Successfully!!");  
-            RequestDispatcher rd=request.getRequestDispatcher("/register.jsp");  
-            rd.include(request, response);  
+
+            out.print("Admin Registered Successfully!!");
+            RequestDispatcher rd = request.getRequestDispatcher("/register.jsp");
+            rd.include(request, response);
 
             /* TODO output your page here. You may use following sample code. */
 //            out.println("<!DOCTYPE html>");

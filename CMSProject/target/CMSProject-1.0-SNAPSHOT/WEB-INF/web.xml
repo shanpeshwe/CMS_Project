@@ -11,11 +11,9 @@
     
     <servlet>  
         <servlet-name>RegisterController</servlet-name>  
-        <servlet-class>RegisterController</servlet-class>  
     </servlet>
     <servlet>  
         <servlet-name>AddAdminDao</servlet-name>  
-        <servlet-class>AddAdminDao</servlet-class>  
     </servlet>
 
     <servlet-mapping>  
