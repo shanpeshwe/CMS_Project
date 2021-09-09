@@ -12,6 +12,33 @@ package com.cablecms.dto;
 public class AdminLoginDto {
     private String username;
     private String password;
+    private String companyname;
+    private String email;
+    private String contactnumber;
+
+    public String getCompanyname() {
+        return companyname;
+    }
+
+    public void setCompanyname(String companyname) {
+        this.companyname = companyname;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getContactnumber() {
+        return contactnumber;
+    }
+
+    public void setContactnumber(String contactnumber) {
+        this.contactnumber = contactnumber;
+    }
 
     public String getUsername() {
         return username;
