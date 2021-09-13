@@ -5,6 +5,7 @@
  */
 package com.cablecms;
 
+import com.cablecms.dao.DbConnect;
 import java.sql.Statement;
 import java.sql.Connection;
 import java.sql.PreparedStatement;

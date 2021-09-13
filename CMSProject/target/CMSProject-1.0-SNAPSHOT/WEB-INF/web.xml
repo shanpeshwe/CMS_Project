@@ -8,18 +8,20 @@
             30
         </session-timeout>
     </session-config>
-    
+
     <servlet>  
-        <servlet-name>RegisterController</servlet-name>  
-    </servlet>
+        <servlet-name>AddAdminController</servlet-name>      
+    </servlet>  
+
     <servlet>  
-        <servlet-name>AddAdminDao</servlet-name>  
-    </servlet>
+        <servlet-name>AddAdminDao</servlet-name>
+    </servlet>  
 
     <servlet-mapping>  
-        <servlet-name>RegisterController</servlet-name>  
-        <url-pattern>/RegisterController</url-pattern>  
+        <servlet-name>AddAdminController</servlet-name>  
+        <url-pattern>/AddAdminController</url-pattern>  
     </servlet-mapping>  
+    
     <servlet-mapping>  
         <servlet-name>AddAdminDao</servlet-name>  
         <url-pattern>/AddAdminDao</url-pattern>  
@@ -28,6 +30,5 @@
     <welcome-file-list>  
         <welcome-file>register.jsp</welcome-file>  
     </welcome-file-list>  
-
 
 </web-app>

@@ -1,6 +1,7 @@
-package com.cablecms;
+package com.cablecms.dao;
 
 //import static java.awt.Event.INSERT;
+import com.cablecms.dao.DbConnect;
 import java.sql.Connection;
 import java.sql.Statement;
 
