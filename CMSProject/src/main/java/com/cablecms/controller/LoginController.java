@@ -5,13 +5,17 @@
  */
 package com.cablecms.controller;
 
+import com.cablecms.dto.AdminLoginDto;
+import com.cablecms.validator.LoginValidator;
 import java.io.IOException;
 import java.io.PrintWriter;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -34,15 +38,27 @@ public class LoginController extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet LoginController</title>");            
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet LoginController at " + request.getContextPath() + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
+            String username, password;
+            username = request.getParameter("username");
+            password = request.getParameter("password");
+            
+            AdminLoginDto admin = new AdminLoginDto();
+            admin.setPassword(password);
+            admin.setUsername(username);
+            
+            String res2 = LoginValidator.loginValidator(admin.getUsername(), admin.getPassword());
+            out.println(res2);
+
+            //To forward page based on admin authentication
+            if (res2.equals("User Not Found, Please register!!")) {
+                RequestDispatcher rd = request.getRequestDispatcher("/login.jsp");
+            rd.include(request, response);
+            } else {
+                HttpSession session = request.getSession();
+                session.setAttribute("username", username);
+                RequestDispatcher rd = request.getRequestDispatcher("/dashboard.jsp");
+                rd.include(request, response);
+            }
         }
     }
 

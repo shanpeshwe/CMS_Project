@@ -19,7 +19,7 @@ import javax.servlet.RequestDispatcher;
  *
  * @author COM
  */
-@WebServlet(name = "RegisterController", urlPatterns = {"/RegisterController"})
+@WebServlet(name = "AddAdminController", urlPatterns = {"/AddAdminController"})
 public class AddAdminController extends HttpServlet {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)

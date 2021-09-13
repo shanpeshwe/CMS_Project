@@ -46,7 +46,7 @@ public class AddAdminDao extends HttpServlet {
                 System.out.println(e);
             }
 
-            out.print("Admin Registered Successfully!!");
+            out.print("Admin Registered Successfully! Please Log In.");
             RequestDispatcher rd = request.getRequestDispatcher("/register.jsp");
             rd.include(request, response);
         }

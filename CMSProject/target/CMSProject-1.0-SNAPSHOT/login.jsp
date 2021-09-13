@@ -47,7 +47,7 @@
                                             <p>Please enter username and password to login</p>
                                         </div>
 
-                                        <form class="user" action="loginauthentication.jsp" method="post">
+                                        <form class="user" action="LoginController" method="post">
                                             <div class="form-group">
                                                 <input type="username" class="form-control form-control-user"
                                                        name="username" placeholder="username" required>
